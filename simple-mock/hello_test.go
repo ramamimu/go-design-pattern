@@ -22,12 +22,11 @@ func (m *mockText) GetHeiWorld() string {
 }
 
 func TestHelloWorld(t *testing.T) {
-	// mocker := new(mockText)
-	mocker := &mockText{}
+	mocker := new(mockText)
 	mocker.On("GetHelloWorld").Return("hello bang")
 
 	textGenerator := NewText(mocker)
-	result := textGenerator.service.GetHelloWorld()
+	result := textGenerator.TextService.GetHelloWorld()
 	var expected string = "hello bang"
 	assert.Equal(t, expected, result)
 }
